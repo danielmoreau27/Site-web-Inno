@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innovelite</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background:#0A0A0A;
+  color:#F5F5F5;
+}
+
+/* HERO */
+.hero {
+  height:100vh;
+  background:url('hero.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero img {
+  width:180px;
+  margin-bottom:20px;
+}
+
+.hero h1 {
+  font-family:'Playfair Display', serif;
+  font-size:60px;
+  letter-spacing:3px;
+}
+
+.hero p {
+  margin-top:10px;
+  color:#C8A96A;
+}
+
+/* SECTIONS */
+section {
+  padding:80px 10%;
+}
+
+h2 {
+  font-family:'Playfair Display', serif;
+  margin-bottom:40px;
+  font-size:36px;
+}
+
+/* ABOUT */
+.about {
+  max-width:800px;
+  line-height:1.6;
+  color:#BDBDBD;
+}
+
+/* PROJECTS */
+.projects {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+.project {
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.project img {
+  width:100%;
+  transition:0.6s;
+}
+
+.project:hover img {
+  transform:scale(1.1);
+}
+
+.project .overlay {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:20px;
+  background:linear-gradient(transparent, black);
+}
+
+.project h3 {
+  font-family:'Playfair Display';
+}
+
+/* FEATURE */
+.feature {
+  background:#111;
+}
+
+.feature img {
+  width:100%;
+  margin-bottom:20px;
+}
+
+/* CONTACT */
+.contact {
+  text-align:center;
+}
+
+.contact a {
+  color:#C8A96A;
+  text-decoration:none;
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:40px;
+  color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <img src="logo.png" alt="Innovelite Logo">
+    <h1>Innovelite</h1>
+    <p>Construire avec vision. Réaliser avec précision.</p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section>
+  <h2>À propos</h2>
+  <div class="about">
+    Innovelite est une entreprise spécialisée en construction immobilière, reconnue pour son souci du détail, la qualité de ses réalisations et son approche moderne du développement résidentiel.
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+  <h2>Nos réalisations</h2>
+  <div class="projects">
+
+    <div class="project">
+      <img src="projet1.jpg">
+      <div class="overlay">
+        <h3>Projet Laval</h3>
+        <p>Résidentiel</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <img src="projet2.jpg">
+      <div class="overlay">
+        <h3>Projet Mirabel</h3>
+        <p>En cours</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURE -->
+<section class="feature">
+  <h2>Projet en vedette</h2>
+  <img src="featured.jpg">
+  <p>Un projet haut de gamme conçu pour offrir un équilibre parfait entre design moderne et confort.</p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Contact</h2>
+  <p>Email : <a href="mailto:info@innovelite.ca">info@innovelite.ca</a></p>
+  <p>Téléphone : (514) 000-0000</p>
+</section>
+
+<footer>
+  © 2026 Innovelite — Tous droits réservés
+</footer>
+
+</body>
+</html>
