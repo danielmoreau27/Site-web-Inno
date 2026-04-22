@@ -1,190 +1,188 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Innovelite — Développement Immobilier</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --noir: #0a0a0a;
-      --blanc: #f5f2ee;
-      --pur-blanc: #ffffff;
-      --or: #c8a96e;
-      --or-clair: #e8d5b0;
-      --gris: #2a2a2a;
-      --gris-moyen: #6b6b6b;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innovelite</title>
 
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { background:var(--noir); color:var(--blanc); font-family:'Montserrat',sans-serif; font-weight:300; overflow-x:hidden; }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-    /* NAVIGATION */
-    nav { 
-        position:fixed; top:0; left:0; right:0; z-index:100; 
-        display:flex; justify-content:space-between; align-items:center; 
-        padding:1.2rem 4rem; background:rgba(10,10,10,0.92); 
-        backdrop-filter:blur(12px); border-bottom:1px solid rgba(200,169,110,0.15); 
-    }
-    .nav-logo img { height:48px; }
-    .nav-links { display:flex; gap:2.5rem; list-style:none; }
-    .nav-links a { 
-        color:var(--blanc); text-decoration:none; font-size:0.72rem; 
-        font-weight:500; letter-spacing:0.18em; text-transform:uppercase; 
-        opacity:0.75; transition:0.2s; 
-    }
-    .nav-links a:hover { opacity:1; color:var(--or); }
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    /* HERO */
-    #hero { 
-        height:100vh; display:flex; flex-direction:column; 
-        justify-content:center; align-items:center; text-align:center; 
-        position:relative; background:var(--noir); overflow:hidden; 
-    }
-    /* Image de fond pour le Hero */
-    .hero-main-bg {
-        position: absolute; inset: 0;
-        background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.6)), 
-                    url('images/Présentation%20sans%20titre.jpg') center/cover no-repeat;
-        z-index: 0;
-    }
-    .hero-content { position:relative; z-index:1; }
-    .hero-logo img { height:90px; margin-bottom: 2rem; }
-    .hero-tagline { 
-        font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,5vw,4.5rem); 
-        font-weight:300; line-height:1.15; max-width:800px; 
-    }
-    .hero-tagline em { font-style:italic; color:var(--or); }
+body {
+  font-family: 'Poppins', sans-serif;
+  background:#0A0A0A;
+  color:#F5F5F5;
+}
 
-    /* SECTION VIDÉO - FOND BLANC */
-    #section-video {
-        background: var(--pur-blanc);
-        padding: 6rem 4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .video-container {
-        width: 100%;
-        max-width: 1200px;
-        height: 650px; /* Hauteur fixe pour l'élégance */
-        background: var(--pur-blanc);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .video-container video {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* Garde le format original avec le blanc autour */
-    }
+/* HERO */
+.hero {
+  height:100vh;
+  background:url('hero.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
 
-    /* VISION & STATS */
-    #vision { 
-        max-width:1200px; margin:0 auto; display:grid; 
-        grid-template-columns:1fr 1fr; gap:6rem; align-items:center; padding:8rem 4rem; 
-    }
-    .stat-block { border-left:1px solid rgba(200,169,110,0.3); padding-left:1.5rem; margin-top: 2rem; }
-    .stat-block .number { font-family:'Cormorant Garamond',serif; font-size:3.5rem; color:var(--or); }
+.hero img {
+  width:180px;
+  margin-bottom:20px;
+}
 
-    /* RÉALISATIONS */
-    #realisations { background:var(--gris); padding:7rem 4rem; }
-    .gallery-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
-    .gallery-item { position:relative; overflow:hidden; aspect-ratio:4/3; }
-    .gallery-item img { width:100%; height:100%; object-fit:cover; transition: 0.6s; filter: grayscale(1); }
-    .gallery-item:hover img { transform:scale(1.05); filter: grayscale(0); }
+.hero h1 {
+  font-family:'Playfair Display', serif;
+  font-size:60px;
+  letter-spacing:3px;
+}
 
-    /* FOOTER */
-    footer { border-top:1px solid rgba(200,169,110,0.1); padding:4rem; text-align:center; }
-    .contact-email { 
-        font-family:'Cormorant Garamond',serif; font-size:2rem; 
-        color:var(--or); text-decoration:none; margin: 2rem 0; display: block;
-    }
+.hero p {
+  margin-top:10px;
+  color:#C8A96A;
+}
 
-    @media (max-width:900px) {
-        #vision { grid-template-columns:1fr; padding:4rem 2rem; }
-        .gallery-grid { grid-template-columns:1fr; }
-        .video-container { height: 400px; }
-        #section-video { padding: 3rem 1rem; }
-    }
-  </style>
+/* SECTIONS */
+section {
+  padding:80px 10%;
+}
+
+h2 {
+  font-family:'Playfair Display', serif;
+  margin-bottom:40px;
+  font-size:36px;
+}
+
+/* ABOUT */
+.about {
+  max-width:800px;
+  line-height:1.6;
+  color:#BDBDBD;
+}
+
+/* PROJECTS */
+.projects {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+.project {
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.project img {
+  width:100%;
+  transition:0.6s;
+}
+
+.project:hover img {
+  transform:scale(1.1);
+}
+
+.project .overlay {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:20px;
+  background:linear-gradient(transparent, black);
+}
+
+.project h3 {
+  font-family:'Playfair Display';
+}
+
+/* FEATURE */
+.feature {
+  background:#111;
+}
+
+.feature img {
+  width:100%;
+  margin-bottom:20px;
+}
+
+/* CONTACT */
+.contact {
+  text-align:center;
+}
+
+.contact a {
+  color:#C8A96A;
+  text-decoration:none;
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:40px;
+  color:#777;
+}
+</style>
 </head>
+
 <body>
 
-<nav>
-  <div class="nav-logo">
-      <img src="images/innovelite(png)%20(1)%20(3).png" alt="Innovelite Logo">
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <img src="logo.png" alt="Innovelite Logo">
+    <h1>Innovelite</h1>
+    <p>Construire avec vision. Réaliser avec précision.</p>
   </div>
-  <ul class="nav-links">
-    <li><a href="#hero">Accueil</a></li>
-    <li><a href="#vision">Vision</a></li>
-    <li><a href="#realisations">Projets</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+</div>
 
-<section id="hero">
-  <div class="hero-main-bg"></div>
-  <div class="hero-content">
-      <div class="hero-logo">
-          <img src="images/innovelite(png)%20(1)%20(3).png" alt="Logo">
+<!-- ABOUT -->
+<section>
+  <h2>À propos</h2>
+  <div class="about">
+    Innovelite est une entreprise spécialisée en construction immobilière, reconnue pour son souci du détail, la qualité de ses réalisations et son approche moderne du développement résidentiel.
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+  <h2>Nos réalisations</h2>
+  <div class="projects">
+
+    <div class="project">
+      <img src="projet1.jpg">
+      <div class="overlay">
+        <h3>Projet Laval</h3>
+        <p>Résidentiel</p>
       </div>
-      <h1 class="hero-tagline">Construire l'avenir avec <em>distinction</em> et rigueur.</h1>
-      <p class="hero-sub">Développement Immobilier Haut de Gamme</p>
+    </div>
+
+    <div class="project">
+      <img src="projet2.jpg">
+      <div class="overlay">
+        <h3>Projet Mirabel</h3>
+        <p>En cours</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<section id="section-video">
-    <div class="video-container">
-        <video autoplay muted loop playsinline>
-            <source src="images/video_presentation.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas la vidéo.
-        </video>
-    </div>
+<!-- FEATURE -->
+<section class="feature">
+  <h2>Projet en vedette</h2>
+  <img src="featured.jpg">
+  <p>Un projet haut de gamme conçu pour offrir un équilibre parfait entre design moderne et confort.</p>
 </section>
 
-<section id="vision">
-    <div class="vision-text">
-        <p class="section-label">Notre Vision</p>
-        <h2 class="section-title">L'excellence au service de l'espace.</h2>
-        <p>Innovelite développe et réalise des projets immobiliers résidentiels distinctifs, conçus avec une vision moderne du développement urbain. Chaque projet est une promesse de <strong>durabilité</strong>.</p>
-    </div>
-    <div class="vision-stats">
-        <div class="stat-block">
-            <div class="number">12+</div>
-            <div class="label">Projets livrés</div>
-        </div>
-        <div class="stat-block">
-            <div class="number">100%</div>
-            <div class="label">Qualité supérieure</div>
-        </div>
-    </div>
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Contact</h2>
+  <p>Email : <a href="mailto:info@innovelite.ca">info@innovelite.ca</a></p>
+  <p>Téléphone : (514) 000-0000</p>
 </section>
 
-<section id="realisations">
-    <div style="max-width:1200px; margin:0 auto;">
-        <p class="section-label">Réalisations</p>
-        <h2 class="section-title">Espaces Signature</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="images/3D%20cuisine.jpg" alt="Cuisine">
-            </div>
-            <div class="gallery-item">
-                <img src="images/3D%20RDC.jpg" alt="RDC">
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer id="contact">
-    <p class="section-label">Contact</p>
-    <h2 class="section-title">Prêt à élever votre projet ?</h2>
-    <a href="mailto:info@innovelite.ca" class="contact-email">info@innovelite.ca</a>
-    <p>&copy; 2026 Innovelite. Tous droits réservés.</p>
+<footer>
+  © 2026 Innovelite — Tous droits réservés
 </footer>
 
 </body>
