@@ -3,55 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innovelite | Développement Immobilier</title>
+    <title>INNOVELITE | Développement Immobilier</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --dark: #0A0A0A;
             --light: #F5F5F5;
-            --gold: #C8A96A; /* Couleur accentuation */
-            --gray: #222222;
-            --border: rgba(255, 255, 255, 0.1);
+            --gold: #C8A96A;
+            --border: rgba(255, 255, 255, 0.08);
+            --transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             background: var(--dark);
             color: var(--light);
             font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
         /* --- NAVIGATION --- */
         nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
             padding: 20px 5%;
+            background: rgba(10, 10, 10, 0.9);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+        }
+
+        .nav-container {
+            max-width: 1600px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border);
-            position: fixed;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.9);
-            z-index: 1000;
-            backdrop-filter: blur(10px);
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 2px;
+        .main-logo {
+            height: 40px;
+            width: auto;
         }
 
-        /* --- HERO SECTION --- */
+        .nav-links {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+        /* --- HERO --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -59,182 +74,134 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070') center/cover no-repeat;
+            /* Utilisation de Présentation sans titre.jpg pour le fond */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('images/Présentation%20sans%20titre.jpg') center/cover no-repeat;
             padding: 0 20px;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 5rem); /* Taille de texte fluide */
-            margin-bottom: 20px;
+            font-size: clamp(2rem, 7vw, 4.5rem);
+            letter-spacing: 8px;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            margin-bottom: 15px;
         }
 
         .hero p {
             color: var(--gold);
+            letter-spacing: 4px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         /* --- SECTIONS --- */
         section {
-            padding: 100px 8%;
+            padding: 120px 8%;
+            max-width: 1600px;
+            margin: 0 auto;
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            border-left: 3px solid var(--gold);
-            padding-left: 20px;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
         }
 
-        .section-text {
-            max-width: 800px;
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: #ccc;
-            margin-bottom: 60px;
-        }
-
-        /* --- GRILLE DE PROJETS (STYLE EVEX) --- */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2px; /* Créer un effet de bordure entre les cartes */
-            background: var(--border);
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .img-box {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            background: #111;
+            margin-bottom: 25px;
             border: 1px solid var(--border);
         }
 
-        .project-card {
-            background: var(--dark);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            padding: 20px;
-        }
-
-        .project-card:hover {
-            background: #111;
-        }
-
-        .img-container {
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .img-container img {
+        .img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(40%);
-            transition: transform 0.6s ease;
+            filter: grayscale(100%);
+            transition: var(--transition);
         }
 
         .project-card:hover img {
-            transform: scale(1.05);
             filter: grayscale(0%);
+            transform: scale(1.03);
         }
 
-        .project-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .project-info p {
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        .status-tag {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 5px 15px;
-            border: 1px solid var(--gold);
-            color: var(--gold);
+        .project-meta {
             font-size: 0.7rem;
+            color: var(--gold);
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        /* --- CONTACT --- */
-        .footer {
-            padding: 60px 8%;
+        footer {
+            padding: 100px 8%;
             border-top: 1px solid var(--border);
             text-align: center;
         }
 
-        .footer a {
-            color: var(--gold);
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-family: 'Playfair Display';
-        }
-
-        /* --- RESPONSIVENESS --- */
         @media (max-width: 768px) {
-            section { padding: 60px 5%; }
             .projects-grid { grid-template-columns: 1fr; }
-            .img-container { height: 300px; }
+            .img-box { height: 350px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">INNOVELITE</div>
-        <div style="font-size: 0.8rem; letter-spacing: 1px;">PROJETS | CONTACT</div>
+        <div class="nav-container">
+            <a href="#">
+                <img src="images/innovelite(png)%20(1)%20(3).png" alt="INNOVELITE" class="main-logo">
+            </a>
+            <div class="nav-links">
+                <a href="#projets">Projets</a>
+                <span style="margin:0 15px; color:#333;">|</span>
+                <a href="mailto:info@innovelite.ca">Contact</a>
+            </div>
+        </div>
     </nav>
 
     <div class="hero">
-        <p>Développement de prestige</p>
+        <p>Expertise & Distinction</p>
         <h1>Construire. <br>Innover. Élever.</h1>
     </div>
 
-    <section>
-        <h2>Notre Vision</h2>
-        <p class="section-text">
-            Inspiré par l'excellence urbaine, Innovelite conçoit des espaces de vie où l'architecture moderne rencontre la durabilité. Nous créons des projets qui redéfinissent le paysage immobilier québécois.
-        </p>
+    <section id="projets">
+        <h2>Réalisations</h2>
 
         <div class="projects-grid">
             <div class="project-card">
-                <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000" alt="Projet">
+                <div class="img-box">
+                    <img src="images/3D%20cuisine.jpg" alt="Design Cuisine">
                 </div>
-                <div class="project-info">
-                    <p>Laval, QC — Résidentiel</p>
-                    <h3>Domaine Innovelite</h3>
-                    <p>12 maisons unifamiliales de luxe au design minimaliste.</p>
-                    <span class="status-tag">En construction</span>
-                </div>
+                <div class="project-meta">Intérieur — Design</div>
+                <h3 style="font-family:'Playfair Display'; font-size:1.6rem; margin:10px 0;">Espaces Culinaires</h3>
+                <p style="color:#777; font-weight:300;">Conception moderne intégrant des matériaux nobles et une ergonomie supérieure.</p>
             </div>
 
             <div class="project-card">
-                <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000" alt="Projet">
+                <div class="img-box">
+                    <img src="images/3D%20RDC.jpg" alt="Design RDC">
                 </div>
-                <div class="project-info">
-                    <p>Mirabel, QC — Triplex</p>
-                    <h3>Résidences Urbaines</h3>
-                    <p>Unités modernes optimisées avec fenestration pleine hauteur.</p>
-                    <span class="status-tag">Vendu</span>
-                </div>
+                <div class="project-meta">Architecture — Résidentiel</div>
+                <h3 style="font-family:'Playfair Display'; font-size:1.6rem; margin:10px 0;">Aires Ouvertes</h3>
+                <p style="color:#777; font-weight:300;">Maximisation de la lumière naturelle et fluidité des espaces de vie.</p>
             </div>
         </div>
     </section>
 
-    <div class="footer">
-        <p style="margin-bottom: 10px; font-size: 0.8rem; color: #666;">CONTACTEZ NOTRE ÉQUIPE</p>
-        <a href="mailto:info@innovelite.ca">info@innovelite.ca</a>
-    </div>
+    <footer>
+        <a href="mailto:info@innovelite.ca" style="font-family:'Playfair Display'; font-size:1.8rem; color:var(--light); text-decoration:none;">info@innovelite.ca</a>
+    </footer>
 
 </body>
 </html>
