@@ -1,138 +1,240 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovelite | Développement Immobilier</title>
 
-<title>Innovelite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #0A0A0A;
+            --light: #F5F5F5;
+            --gold: #C8A96A; /* Couleur accentuation */
+            --gray: #222222;
+            --border: rgba(255, 255, 255, 0.1);
+        }
 
-<style>
-body {
-  margin:0;
-  background:#0A0A0A;
-  color:#F5F5F5;
-  font-family:Poppins;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-/* HERO */
-.hero {
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  background:url('images/hero.jpg') center/cover no-repeat;
-}
+        body {
+            background: var(--dark);
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-.hero h1 {
-  font-family:Playfair Display;
-  font-size:60px;
-}
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.9);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
 
-.hero p {
-  color:#C8A96A;
-}
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
 
-/* SECTIONS */
-section {
-  padding:80px 10%;
-}
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070') center/cover no-repeat;
+            padding: 0 20px;
+        }
 
-h2 {
-  font-family:Playfair Display;
-  margin-bottom:20px;
-}
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem); /* Taille de texte fluide */
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
 
-/* PROJECTS */
-.projects {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:40px;
-}
+        .hero p {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+        }
 
-.project img {
-  width:100%;
-}
+        /* --- SECTIONS --- */
+        section {
+            padding: 100px 8%;
+        }
 
-.overlay {
-  margin-top:15px;
-}
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            border-left: 3px solid var(--gold);
+            padding-left: 20px;
+        }
 
-.status {
-  color:#C8A96A;
-  font-size:14px;
-}
-</style>
+        .section-text {
+            max-width: 800px;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #ccc;
+            margin-bottom: 60px;
+        }
 
+        /* --- GRILLE DE PROJETS (STYLE EVEX) --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2px; /* Créer un effet de bordure entre les cartes */
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .project-card {
+            background: var(--dark);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .project-card:hover {
+            background: #111;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(40%);
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .project-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .status-tag {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 5px 15px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- CONTACT --- */
+        .footer {
+            padding: 60px 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-family: 'Playfair Display';
+        }
+
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            section { padding: 60px 5%; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .img-container { height: 300px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div>
-    <img src="images/logo.png" width="150">
-    <h1>Construire. Innover. Élever.</h1>
-    <p>Des projets immobiliers conçus pour durer.</p>
-  </div>
-</div>
+    <nav>
+        <div class="logo">INNOVELITE</div>
+        <div style="font-size: 0.8rem; letter-spacing: 1px;">PROJETS | CONTACT</div>
+    </nav>
 
-<!-- CORPORATE -->
-<section>
-  <h2>Nos projets immobiliers</h2>
-  <p>
-    Innovelite développe et réalise des projets immobiliers résidentiels distinctifs,
-    conçus avec rigueur, qualité et une vision moderne du développement urbain.
-  </p>
-</section>
-
-<!-- PROJETS -->
-<section>
-  <h2>Projets en cours</h2>
-
-  <div class="projects">
-
-    <div class="project">
-      <img src="images/projet1.jpg">
-      <div class="overlay">
-        <h3>Domaine Innovelite</h3>
-        <p>Maisons unifamiliales</p>
-        <p>Laval, QC</p>
-        <p>Projet de 12 maisons modernes situées à proximité des services et axes routiers.</p>
-        <span class="status">En cours</span>
-      </div>
+    <div class="hero">
+        <p>Développement de prestige</p>
+        <h1>Construire. <br>Innover. Élever.</h1>
     </div>
 
-    <div class="project">
-      <img src="images/projet2.jpg">
-      <div class="overlay">
-        <h3>Résidences Urbaines</h3>
-        <p>Triplex</p>
-        <p>Mirabel, QC</p>
-        <p>Projet résidentiel optimisé offrant des unités modernes avec grande fenestration.</p>
-        <span class="status">Complété</span>
-      </div>
+    <section>
+        <h2>Notre Vision</h2>
+        <p class="section-text">
+            Inspiré par l'excellence urbaine, Innovelite conçoit des espaces de vie où l'architecture moderne rencontre la durabilité. Nous créons des projets qui redéfinissent le paysage immobilier québécois.
+        </p>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000" alt="Projet">
+                </div>
+                <div class="project-info">
+                    <p>Laval, QC — Résidentiel</p>
+                    <h3>Domaine Innovelite</h3>
+                    <p>12 maisons unifamiliales de luxe au design minimaliste.</p>
+                    <span class="status-tag">En construction</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000" alt="Projet">
+                </div>
+                <div class="project-info">
+                    <p>Mirabel, QC — Triplex</p>
+                    <h3>Résidences Urbaines</h3>
+                    <p>Unités modernes optimisées avec fenestration pleine hauteur.</p>
+                    <span class="status-tag">Vendu</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer">
+        <p style="margin-bottom: 10px; font-size: 0.8rem; color: #666;">CONTACTEZ NOTRE ÉQUIPE</p>
+        <a href="mailto:info@innovelite.ca">info@innovelite.ca</a>
     </div>
-
-  </div>
-</section>
-
-<!-- VALEUR -->
-<section>
-  <h2>Une approche intégrée</h2>
-  <p>
-    De la conception à la réalisation, Innovelite maîtrise chaque étape du développement
-    immobilier afin de garantir des projets durables, rentables et de haute qualité.
-  </p>
-</section>
-
-<!-- CONTACT -->
-<section>
-  <h2>Contact</h2>
-  <p>info@innovelite.ca</p>
-</section>
 
 </body>
 </html>
